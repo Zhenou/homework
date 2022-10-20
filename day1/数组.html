@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr1 = [1, 2, 3, 4, 5];
+    const arr2 = [1, 2, 3, 4, 5];
+    const arr3 = [1, 2, 3, 4, 5];
+    const arr4 = [1, 2, 3, 4, 5];
+    const arr5 = [1, 2, 3, 4, 5];
+    const arr6 = [1, 2, 3, 4, 5];
+    const arr7 = [1, 2, 3, 4, 5];
+    const arr8 = [1, 2, 3, 4, 5];
+
+    const str1 = arr1.join(''); //join()将数组用括号里的符号拼接成字符串
+    console.log(str1, arr1);
+
+    const arr_2 = arr2.pop(); //pop()删除数组最后一位并返回返回该元素,会改变数组长度
+    console.log(arr_2, arr2);
+
+    const arr_3 = arr3.unshift('a'); //unshift()向数组起始位置添加一个元素,并返回新的长度
+    console.log(arr_3, arr3);
+
+    const arr_4 = arr4.shift(); //shift()从数组起始位置移除一个元素,并返回长度,会改变数组长度
+    console.log(arr_4, arr4);
+
+    const arr_5 = arr5.map((item, index, arr) => { //map()方法返回一个新数组,回调函数三个参数分别为(当前项,数组索引,数组)
+      // console.log(index, arr);
+      return item + 1;
+    });
+    console.log(arr_5, arr5);
+
+    let arr_6 = [];
+    arr6.forEach((item, index, arr) => {//foreach()遍历数组,没有返回值,回调函数的三个参数分别为(当前项,数组索引,数组)
+      console.log(arr);
+      if (item > 3) arr_6.push(item);
+    });
+    console.log(arr_6, arr6);
+
+    const arr_7 = arr7.filter((item, index, arr) => { //filter()筛选数组满足条件的项,返回满足条件的项,回调函数的三个参数分别为(当前项,数组索引,数组)
+      return item > 2;
+    });
+    console.log(arr_7, arr7);
+
+    const arr_8 = arr8.every((item, index, arr) => {//every(),数组所有项,满足条件返回true,否则返回false
+      return item > 2;
+    });
+    console.log(arr_8);
+
+    const arr_9 = arr8.some((item, index, arr) => {//every(),数组有一项满足条件返回true,否则返回false
+      return item > 4;
+    });
+    console.log(arr_9);
+  </script>
+</body>
+
+</html>

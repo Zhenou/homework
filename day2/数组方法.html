@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr1 = [1, 2, 3, 4, 5];
+    const arr2 = [1, 2, 3, 4, 5];
+    const arr3 = [1, 2, 3, 4, 5];
+    const arr4 = [1, 2, 3, 4, 5];
+    const arr5 = [1, 2, 3, 4, 5];
+    //reduce有两个参数,第一个是回调函数,第二个是初始值,如果没有设置初始值,那么reduce就会从拿数组索引为作0为初始值,从索引为1开始遍历,如果设置了初始值,那么将会从索引为0的地方开始遍历 有return
+    const arr_1 = arr1.reduce((n, item, index, array) => {
+      console.log(n, item, index, array);
+      return n + item;
+    }, 0);
+    console.log(arr_1);
+
+    //filter有两个参数,第一个是回调函数(分别为数组的每一项,数组的索引,原数组),thisValue是一个参考值,类似于筛选条件
+    const c = 2;
+    const arr_2 = arr2.filter((item, index, array) => {
+      return item < c;
+    }, c);
+    console.log(arr_2);
+
+    //some有两个参数,第一个是回调函数(分别为数组的每一项,数组的索引,原数组),thisValue是一个参考值,类似于筛选条件,整个数组里面其中有一项满足筛选人条件就返回true,每一项都不满足就返回false
+    const arr_3 = arr3.some((item, index, array) => {
+      return item > c;
+    }, c);
+    console.log(arr_3);
+
+    //some有两个参数,第一个是回调函数(分别为数组的每一项,数组的索引,原数组),thisValue是一个参考值,类似于筛选条件,整个数组里面全部满足条件返回true,有一项不满足就返回false
+    const arr_4 = arr4.every((item, index, array) => {
+      return item > c;
+    }, c);
+    console.log(arr_4);
+
+    //map有两个参数,第一个是回调函数(分别为数组的每一项,数组的索引,原数组),thisValue是一个参考值,类似于筛选条件,整个数组里面全部满足条件返回true,有一项不满足就返回false
+    const arr_5 = arr5.map((item, index, array) => {
+      return item + c;
+    }, c);
+    console.log(arr_5);
+
+
+    const arr11 = [1, 2, 3, 4, 5];
+    const arr22 = [1, 2, 3, 4, 5];
+    const arr33 = [1, 2, 3, 4, 5];
+    const arr44 = [1, 2, 3, 4, 5];
+    const arr55 = [2, 1, 5, 4, 3];
+    const arr66 = [1, 2, 3, 4, 5];
+    const arr77 = [1, 2, 3, 4, 5];
+
+
+    //push方法,向数组末尾新增一个元素,返回新数组的长度
+    const arr111 = arr11.push(6);
+    console.log(arr11, arr111);
+
+    //pop方法,向数组末尾新增一个元素,返回新数组的长度
+    const arr222 = arr22.pop();
+    console.log(arr22, arr222);
+
+    //unshift方法,向数组开头新增一个元素,返回新数组的长度
+    const arr333 = arr33.unshift('a');
+    console.log(arr33, arr333);
+
+    //shift方法,向数组开头删除一个元素,返回被删除的元素
+    const arr444 = arr44.shift();
+    console.log(arr44, arr444);
+
+    //sort,将数组按规定顺序排序(a,b)=>{a-b},没有返回值
+    const arr555 = arr55.sort();
+    console.log(arr55, arr555);
+
+    //reverse将数组反转,没有返回值
+    const arr666 = arr66.reverse();
+    console.log(arr66, arr666);
+
+    //splice两个参数(start,end),返回被裁剪的·元素,从start开始到end结束,元素会减去被裁减的元素
+    const arr777 = arr77.splice(0, 3);
+    console.log(arr77, arr777)
+
+  </script>
+</body>
+
+</html>
