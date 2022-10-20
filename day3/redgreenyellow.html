@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .red-green-light {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 70px;
+      height: 240px;
+      background-color: #333;
+      border-radius: 5px;
+    }
+
+    .light {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    .red-green-light .light:nth-child(1).active {
+      background-color: red;
+    }
+
+    .red-green-light .light:nth-child(2).active {
+      background-color: green;
+    }
+
+    .red-green-light .light:nth-child(3).active {
+      background-color: goldenrod;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="red-green-light">
+      <div class="light red"></div>
+      <div class="light green"></div>
+      <div class="light yellow "></div>
+    </div>
+
+  </div>
+</body>
+
+<!-- <script>
+  loop();
+  function loop() {
+    const lightOne = new Promise((resolve, reject) => {
+      resolve('red');
+    });
+    lightOne.then(res => {
+      light(res, 3000);
+      return lightTne = new Promise((resolve, reject) => {
+        resolve('green');
+      });
+    }).then(res => {
+      setTimeout(() => {
+        light(res, 2000);
+      }, 3000);
+      return lightThree = new Promise((resolve, reject) => {
+        resolve('yellow');
+      });
+    }).then(res => {
+      setTimeout(() => {
+        light(res, 1000);
+      }, 5000);
+    }).then(res => {
+      setTimeout(() => {
+        loop();
+      }, 6000);
+    });
+  }
+  function light(color, endTime) {
+    document.querySelector(`.container .red-green-light .${color}`).classList.add('active');
+    setTimeout(() => {
+      document.querySelector(`.container .red-green-light .${color}`).classList.remove('active');
+    }, endTime);
+  }
+
+</script> -->
+<script>
+  // 让灯亮的方法
+  const openLight = node => node.classList.add('active');
+  // 让灯灭的方法
+  const offLight = node => node.classList.remove('active');
+  async function open() {
+    const p1 = await new Promise((resolve, reject) => {
+      resolve(
+        openLight(document.querySelector('.red')),
+        offLight(document.querySelector('.yellow'))
+      );
+    });
+    const p2 = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          openLight(document.querySelector('.green')),
+          offLight(document.querySelector('.red'))
+        );
+      }, 3000);
+    });
+    const p3 = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          openLight(document.querySelector('.yellow')),
+          offLight(document.querySelector('.green'))
+        );
+      }, 2000);
+    });
+    const cccc = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          offLight(document.querySelector('.yellow')),
+          open()
+        );
+      }, 1000);
+    });
+  }
+  open()
+</script>
+
+</html>
