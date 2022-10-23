@@ -14,7 +14,7 @@ module.exports = {
     filename: "index.html"
   })],
   devServer: { //设置webpack的服务器端口
-    port: 2333,//设置端口号
+    port: 3000,//设置端口号
   },
   module: {//配置依赖包模块
     rules: [

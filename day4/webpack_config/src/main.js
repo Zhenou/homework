@@ -25,3 +25,5 @@ document.body.appendChild(i1);
 const i2 = document.createElement('i');
 i2.className = 'iconfont icon-qq';
 document.body.appendChild(i2);
+
+console.log('1');
