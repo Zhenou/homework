@@ -14,12 +14,13 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m '作业展示'
 
 # 部署到 https://<USERNAME>.github.io
-git push  git@github.com:Zhenou/homework live
+# git push  git@github.com:Zhenou/homework.git master
+
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:Zhenou/<REPO>.git master:gh-pages
+git push  git@github.com:Zhenou/homework.git master:gh-pages
 
 cd -
