@@ -1,6 +1,8 @@
 <template>
   <tr>
-    <td><input type="checkbox" @click="choice(sindex)" /></td>
+    <td>
+      <input type="checkbox" @click="choice(sindex)" v-model="schecked" />
+    </td>
     <td>{{ sname }}</td>
     <td>{{ sprice }}</td>
     <td>
@@ -34,6 +36,7 @@ export default {
     choice(sindex) {
       // console.log(this.sindex);
       this.$emit("choice", sindex);
+      this.$emit("addArray", sindex);
     },
   },
 };

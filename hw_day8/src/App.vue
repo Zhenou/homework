@@ -6,7 +6,7 @@
       </caption>
       <thead>
         <tr>
-          <th><input type="checkbox" /> <span>全选</span></th>
+          <th><input type="checkbox" v-model="isAll" /> <span>全选</span></th>
           <th>名称</th>
           <th>价格</th>
           <th>数量</th>
@@ -37,20 +37,19 @@
         </tr> -->
       </tbody>
       <tfoot>
-        <tr>
-          <td>合计:{{ totalPrice }}</td>
-          <td colspan="5"></td>
-        </tr>
+        <SumPrice :totalPrice="totalPrice"></SumPrice>
       </tfoot>
     </table>
   </div>
 </template>
 
 <script>
+import SumPrice from "./components/SumPrice.vue";
 import trS from "./components/Gametr.vue";
 export default {
   components: {
     trS,
+    SumPrice,
   },
   data() {
     return {
@@ -81,7 +80,6 @@ export default {
         },
       ],
     };
-    total: "";
   },
   methods: {
     delFn(dIndex) {
@@ -99,7 +97,23 @@ export default {
     },
   },
   computed: {
-    totalPrice() {},
+    totalPrice() {
+      return this.isSum.reduce((sum, item) => sum + item.num * item.price, 0);
+    },
+    isAll: {
+      get() {
+        if (this.goodList.length === 0) return false;
+        return this.goodList.every((item) => item.checked);
+      },
+      set(val) {
+        this.goodList.forEach((item) => (item.checked = val));
+      },
+    },
+    isSum: {
+      get() {
+        return this.goodList.filter((item) => item.checked);
+      },
+    },
   },
 };
 </script>

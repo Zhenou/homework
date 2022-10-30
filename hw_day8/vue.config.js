@@ -3,6 +3,6 @@ module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/homework/'//这里写展示页面的仓库名称
+    ? '/'//这里写展示页面的仓库名称
     : '/',
 });
