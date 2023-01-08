@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1>我是一级B下面的</h1>
+    <p>
+      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+    </p>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>

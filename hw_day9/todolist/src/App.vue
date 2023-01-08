@@ -69,6 +69,7 @@ export default {
     },
   },
   computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
     isFilter() {
       if (this.type === "all") {
         return this.list;
